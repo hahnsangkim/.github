@@ -2,13 +2,28 @@
 
 This repository contains reusable GitHub Actions workflows that can be used across all repositories in this organization/account.
 
+## Quick Install
+
+Run this command in any project to add auto-changelog:
+
+```bash
+mkdir -p .github/workflows && curl -so .github/workflows/docs.yml https://raw.githubusercontent.com/hahnsangkim/.github/main/examples/docs-workflow.yml
+```
+
+Then commit and push:
+```bash
+git add .github/workflows/docs.yml && git commit -m "ci: add auto-changelog workflow" && git push
+```
+
+---
+
 ## Available Workflows
 
 ### 1. Auto Changelog
 
 Automatically generates and updates `CHANGELOG.md` from commit history using [auto-changelog](https://github.com/cookpete/auto-changelog).
 
-**Usage in your repository:**
+**Manual setup (alternative to Quick Install):**
 
 Create `.github/workflows/docs.yml`:
 
@@ -40,6 +55,8 @@ jobs:
       output-file: 'CHANGELOG.md'  # Output filename
 ```
 
+---
+
 ## Commit Message Convention
 
 For best changelog results, use [Conventional Commits](https://www.conventionalcommits.org/):
@@ -65,15 +82,9 @@ docs: update API documentation
 refactor: simplify database queries
 ```
 
-## Setup Instructions
-
-1. Create a repository named `.github` in your GitHub account
-2. Copy the contents of this folder to that repository
-3. Push to GitHub
-4. Use the workflows in any of your other repositories
+---
 
 ## Requirements
 
 - The calling repository must have `contents: write` permission
 - Works with public and private repositories
-
