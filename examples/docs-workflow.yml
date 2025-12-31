@@ -1,0 +1,26 @@
+# Example workflow to use in your repositories
+# Copy this file to: .github/workflows/docs.yml
+#
+# This calls the reusable auto-changelog workflow from the .github repository
+
+name: Update Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # Customize these paths for your project
+      - 'lib/**'
+      - 'src/**'
+      - 'components/**'
+      - 'app/**'
+
+jobs:
+  changelog:
+    uses: hahnsangkim/.github/.github/workflows/auto-changelog.yml@main
+    # Uncomment to customize:
+    # with:
+    #   commit-limit: '50'
+    #   template: 'keepachangelog'
+    #   output-file: 'CHANGELOG.md'
+
