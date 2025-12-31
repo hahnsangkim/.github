@@ -2,9 +2,25 @@
 
 This repository contains reusable GitHub Actions workflows that can be used across all repositories in this organization/account.
 
-## Quick Install
+## 🚀 Full Setup (Recommended)
 
-Run this command in any project to add auto-changelog:
+Run this command in any new project to set up complete documentation automation:
+
+```bash
+curl -s https://raw.githubusercontent.com/hahnsangkim/.github/main/scripts/init-docs.sh | bash
+```
+
+This creates:
+- `.github/workflows/docs.yml` - Auto-changelog workflow
+- `.auto-changelog` - Changelog configuration
+- `docs/` folder structure (guides, features, archive)
+- `ARCHITECTURE.md` template
+
+---
+
+## ⚡ Quick Install (Workflow Only)
+
+Just add the auto-changelog workflow:
 
 ```bash
 mkdir -p .github/workflows && curl -so .github/workflows/docs.yml https://raw.githubusercontent.com/hahnsangkim/.github/main/examples/docs-workflow.yml
@@ -12,7 +28,7 @@ mkdir -p .github/workflows && curl -so .github/workflows/docs.yml https://raw.gi
 
 Then commit and push:
 ```bash
-git add .github/workflows/docs.yml && git commit -m "ci: add auto-changelog workflow" && git push
+git add -A && git commit -m "ci: add auto-changelog workflow" && git push
 ```
 
 ---
@@ -80,6 +96,22 @@ feat: add user authentication
 fix: resolve login timeout issue
 docs: update API documentation
 refactor: simplify database queries
+```
+
+---
+
+## Files in This Repository
+
+```
+.github/
+├── workflows/
+│   └── auto-changelog.yml    # Reusable workflow
+├── examples/
+│   ├── docs-workflow.yml     # Example workflow to copy
+│   └── .auto-changelog       # Example config
+├── scripts/
+│   └── init-docs.sh          # Full setup script
+└── README.md
 ```
 
 ---
